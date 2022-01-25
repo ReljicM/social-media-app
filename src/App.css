@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  background: '#f9f9f9';
+}
+
+.registration {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+.login {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
