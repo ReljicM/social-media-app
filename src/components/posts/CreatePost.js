@@ -22,7 +22,7 @@ export default function CreatePost() {
     const dispatch = useDispatch();
     const create = useCallback(
         post =>  dispatch(createPost({ firestore }, post)),
-        [firestore]
+        [firestore, dispatch]
     );
     const auth = useSelector(state => state.firebase.auth);
 
@@ -65,13 +65,13 @@ export default function CreatePost() {
             id="content"
             label="Content"
             defaultValue=""
-            onInput={ e=>setContent(e.target.value)}
+            onInput={ e => setContent(e.target.value)}
             />
             <Button
             type="submit"
              variant="contained"
              sx={{width: 100,margin: '0 auto'}}
-            align="center"
+            align="right"
             onClick={handleSubmit}
             >
             Create

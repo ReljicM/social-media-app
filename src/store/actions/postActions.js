@@ -26,3 +26,38 @@ export const createPost = ({ firestore }, post ) => {
         
     }
 };
+
+export const updatePost = ({firestore}, id, post) => {
+
+    return (dispatch, getState ) => {
+        
+        db
+        .collection('posts')
+        .doc(id)
+        .update({
+            ...post,
+            content: post.updateContent,
+            updateAt: new Date()
+        })
+        .then(() => {
+            dispatch({ type: 'UPDATE_POST', id })
+        }).catch((err) => {
+            dispatch({ type: 'UPDATE_POST_ERROR', err})
+        })
+    }
+};
+
+export const deletePost = ({firestore}, id) => {
+
+    return (dispatch, getState ) => {
+        db
+        .collection('posts')
+        .doc(id)
+        .delete()
+        .then(() => {
+            dispatch({ type: 'DELETE_POST', id })
+        }).catch((err) => {
+            dispatch({ type: 'DELETE_POST_ERROR', err})
+        })
+    }
+};

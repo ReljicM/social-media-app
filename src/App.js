@@ -7,6 +7,7 @@ import CreatePost from './components/posts/CreatePost'
 import PostDetails from './components/posts/PostDetails'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
+import ProfileDashboard from './components/profile/ProfileDashboard'
 
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -47,6 +48,7 @@ function App() {
               <Route  path='/signup' element={< SignUp />} />
               <Route  path='/signin' element={< SignIn />} />
               <Route  path='/createpost' element={< CreatePost />} />
+              <Route  path='/profile/:id' element={< ProfileDashboard />} />
             </Routes>
           </Layout>
         </BrowserRouter>

@@ -6,7 +6,7 @@ import { CardActionArea } from '@mui/material';
 import moment from 'moment';
 
 
-export default function PostSummary({post}) {
+export default function ProfilePostSummary({post}) {
   
   
   return (
