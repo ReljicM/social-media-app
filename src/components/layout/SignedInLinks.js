@@ -9,13 +9,17 @@ import { logOut } from '../../store/actions/authActions';
 
 
 
-export default function SignedInLinks({profile}) {
-    
+export default function SignedInLinks({profile, auth}) {
+
         const dispatch = useDispatch();
         const sgnOut = () => dispatch(logOut());
+        console.log(profile)
     
     return (
         <ButtonGroup disableElevation variant="contained">
+            <Button href={`/profile/${auth.uid}`}>
+                 Profile
+             </Button>
             <Button href="/createpost">
                  New Post
              </Button>

@@ -21,9 +21,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Dashboard() {
-    useFirestoreConnect('posts');
     const posts = useSelector(state => state.firestore.ordered.posts);
     const auth = useSelector(state => state.firebase.auth);
+    useFirestoreConnect([
+        { collection: 'posts', orderBy:['createdAt', 'desc'] } 
+      ])
 
     if (!auth.uid) return <Navigate to="/signin" />
 
