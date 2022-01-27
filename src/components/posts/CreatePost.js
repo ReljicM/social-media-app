@@ -12,7 +12,9 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function CreatePost() {
+
     
     const [title, setTitle] = useState();
     const [content, setContent] = useState();
@@ -38,8 +40,13 @@ export default function CreatePost() {
     return (
         <Box
         component="form"
-        sx={{margin: '0 auto',display: 'flex',width: 600,marginTop: '50px',
+        sx={{
+        margin: '0 auto',
+        display: 'flex',
+        width: 600,marginTop: '50px',
         '& .MuiTextField-root': { m: 1, width: '25ch' },
+        
+        
         }}
         noValidate
         autoComplete="off"
@@ -47,7 +54,7 @@ export default function CreatePost() {
     >
         <Box sx={{margin: '0 auto',display: 'grid'}}>
             <Typography variant='h5' align='center'>
-                Create Post
+                
             </Typography>
             <TextField
             sx={{minWidth: 500}}
@@ -67,15 +74,23 @@ export default function CreatePost() {
             defaultValue=""
             onInput={ e => setContent(e.target.value)}
             />
-            <Button
-            type="submit"
-             variant="contained"
-             sx={{width: 100,margin: '0 auto'}}
-            align="right"
-            onClick={handleSubmit}
+            <Box
+            sx={{
+                margin: '0 auto',
+            }}
             >
-            Create
-            </Button>
+                <Button
+                type="submit"
+                variant="contained"
+                onClick={handleSubmit}
+                sx={{
+                    width: '400px'
+                }}
+                >
+                Post
+                </Button>
+            </Box>
+            
         </Box>
         
         

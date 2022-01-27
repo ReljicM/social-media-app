@@ -11,7 +11,7 @@ export default function PostsList({ posts }) {
       { posts && posts.map(post => {
         
         return (
-          <Link style={{textDecoration: 'none', display: 'block', width: '350px', margin: '0 auto'}} to={/post/ + post.id} key={post.id}>
+          <Link style={{textDecoration: 'none', display: 'block', margin: '0 auto'}} to={/post/ + post.id} key={post.id}>
             <ProfilePostSummary post={post}  />
           </Link>
         )

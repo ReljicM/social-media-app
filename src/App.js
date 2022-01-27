@@ -44,11 +44,11 @@ function App() {
           <Layout>
             <Routes>
               <Route exact path='/' element={< Dashboard />} />
-              <Route  path={'/post/:id'} element={< PostDetails />} />
-              <Route  path='/signup' element={< SignUp />} />
-              <Route  path='/signin' element={< SignIn />} />
-              <Route  path='/createpost' element={< CreatePost />} />
-              <Route  path='/profile/:id' element={< ProfileDashboard />} />
+              <Route exact  path={'/post/:id'} element={< PostDetails />} />
+              <Route exact path='/signup' element={< SignUp />} />
+              <Route exact  path='/signin' element={< SignIn />} />
+              <Route exact path='/createpost' element={< CreatePost />} />
+              <Route exact  path='/profile/:id' element={< ProfileDashboard />} />
             </Routes>
           </Layout>
         </BrowserRouter>
