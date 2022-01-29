@@ -7,6 +7,7 @@ import firebase from "./firebase";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import { createFirestoreInstance } from "redux-firestore";
 import { configureStore, rrfConfig } from './store/configureStore';
+import PageLoader from './components/layout/PageLoader'
 
 
 import { isLoaded } from "react-redux-firebase"
@@ -15,8 +16,12 @@ const store = configureStore();
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
-  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
-      return children
+  if (!isLoaded(auth)) {
+    return <PageLoader />
+      
+  }   else {
+  return children
+  }
 }
 
   ReactDOM.render(

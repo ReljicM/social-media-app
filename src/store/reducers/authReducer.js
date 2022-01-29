@@ -1,5 +1,5 @@
 const initState = {
-    authError: null
+    authError: null,
 }
 
 const authReducer = (state = initState, action) => {
@@ -42,7 +42,6 @@ const authReducer = (state = initState, action) => {
                 ...state,
                 authError: 'Password not matches'
             }            
-
         default :
         return state;    
     }

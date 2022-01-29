@@ -33,8 +33,7 @@ export default function CreatePost() {
     const handleSubmit = (e) => {
         e.preventDefault();
         create({title, content})
-        navigate('/')
-        
+        navigate(`/profile/${auth.uid}`)
     }
     
     return (

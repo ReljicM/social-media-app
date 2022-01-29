@@ -11,7 +11,8 @@ export default function Layout({ children }) {
             <Navbar />
             <Container
             sx={{
-            width: '100%',minHeight: 800
+            width: '100%',
+            minHeight: 800
             }}>
                 { children }
             </Container>

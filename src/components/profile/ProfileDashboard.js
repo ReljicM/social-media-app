@@ -8,7 +8,8 @@ import {  useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import {  useParams } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+
+import PageLoader from '../layout/PageLoader'
 import Container from '@mui/material/Container';
 import CreatePost from '../posts/CreatePost';
 import { makeStyles } from '@mui/styles';
@@ -58,7 +59,7 @@ export default function ProfileDashboard() {
         backgroundColor: theme.palette.secondary.light,
         boxShadow: 'none'
       }));
-      if (profile) {
+      if (posts) {
         return ( 
             <Box sx={{ flexGrow: 1,}} >
                 <Grid container
@@ -109,9 +110,7 @@ export default function ProfileDashboard() {
         return (
             <Container>
                 <Box>
-                    <Typography>
-                        Page Loading...
-                    </Typography>
+                    <PageLoader />
                 </Box>
             </Container>
             )

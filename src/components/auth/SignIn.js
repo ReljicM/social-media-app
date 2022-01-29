@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 
 
 import { signIn } from '../../store/actions/authActions'
+import { showLoader } from '../../store/actions/profileActions'
+import { hideLoader } from '../../store/actions/profileActions'
+
 import { useSelector } from "react-redux";
 
 import { Navigate } from 'react-router-dom';
@@ -26,6 +29,7 @@ export default function SignIn() {
     const auth = useSelector((state) => state.firebase.auth)
     const authErr = useSelector((state) => state.auth.authError);
 
+
     if (auth.uid) return <Navigate to="/" />
 
     console.log(authErr)
@@ -33,6 +37,8 @@ export default function SignIn() {
         e.preventDefault();
         sign({email, password});
     }
+    
+
     return (
         <Box
         component="form"
