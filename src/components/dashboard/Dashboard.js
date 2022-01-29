@@ -10,6 +10,8 @@ import {  useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import { Navigate } from 'react-router-dom';
 
+import Container from '@mui/material/Container';
+import PageLoader from '../layout/PageLoader'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,21 +31,29 @@ export default function Dashboard() {
 
     if (!auth.uid) return <Navigate to="/signin" />
 
+    if (auth.uid) {
+        return (
+            <Box sx={{ flexGrow: 1 }} >
+            <Grid container  spacing={2} sx={{marginTop: '0px'}}>
+                <Grid item xs={8}>
+                <Item sx={{borderRadius: 0, boxShadow: 'none'}}>
+                    <PostsList posts={posts} />
+                </Item>
+                </Grid>
+                <Grid item xs={4}>
+                <Item>
+                    <Notifications />
+                </Item>
+                </Grid>
+            </Grid>
+            </Box>
+        );
+    } else {
+        return (
+            <Container>
+                <PageLoader />
+            </Container>
+            )
+    }
     
-    return (
-        <Box sx={{ flexGrow: 1 }} >
-        <Grid container  spacing={2} sx={{marginTop: '0px'}}>
-            <Grid item xs={8}>
-            <Item sx={{borderRadius: 0, boxShadow: 'none'}}>
-                <PostsList posts={posts} />
-            </Item>
-            </Grid>
-            <Grid item xs={4}>
-            <Item>
-                <Notifications />
-            </Item>
-            </Grid>
-        </Grid>
-        </Box>
-    );
     }

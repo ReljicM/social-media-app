@@ -24,6 +24,8 @@ import TextField from '@mui/material/TextField';
 import EditIcon from '@mui/icons-material/Edit';
 
 
+
+
 export default function  PostDetails () {
     const [updateContent, setUpdateContent] = useState()
 
@@ -67,7 +69,7 @@ export default function  PostDetails () {
     const handleUpdatePost = e => {
         e.preventDefault();
         updPost({updateContent});
-        navigate('/');
+        
     }
     
     
@@ -163,9 +165,7 @@ export default function  PostDetails () {
         return (
             <Container>
                 <Box>
-                    <Typography>
-                        Page Loading...
-                    </Typography>
+                    
                 </Box>
             </Container>
             )
